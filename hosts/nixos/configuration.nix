@@ -22,6 +22,7 @@
     dates = "weekly";
     options = "--delete-older-than 14d"; # удалять генерации старше 14 дней
   };
+  
   # ── Nix ───────────────────────────────────────────────────────────────────
   nix.settings = {
     auto-optimise-store = true; # дедупликация файлов в /nix/store
@@ -113,11 +114,6 @@
     ];
     isNormalUser = true;
     shell = pkgs.fish;
-    packages = with pkgs; [
-      google-chrome
-      telegram-desktop
-      vscode
-    ];
   };
 
   # ── Programs ──────────────────────────────────────────────────────────────

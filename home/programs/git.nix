@@ -3,8 +3,10 @@
 {
   programs.git = {
     enable = true;
-    userName = "MornaMeoi";
-    userEmail = "ваш@email.com";
-    extraConfig.init.defaultBranch = "main";
+    settings = {
+      user.name = "MornaMeoi";
+      user.email = "shurasick@mail.ru";
+      init.defaultBranch = "main";
+    };
   };
 }

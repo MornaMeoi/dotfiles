@@ -10,7 +10,7 @@
     ./programs/fish.nix
   ];
 
-  home.packages = (with pkgs; [
+  home.packages = with pkgs; [
     bat
     btop
     fd
@@ -20,20 +20,14 @@
     jq
     ripgrep
     vscode
-  ]) ++ [
-    unstable.telegram-desktop
   ];
 
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
     matchBlocks = {
-      "*" = {
-        addKeysToAgent = "yes";
-      };
-      "github.com" = {
-        identityFile = "~/.ssh/id_ed25519";
-      };
+      "*".addKeysToAgent = "yes";
+      "github.com".identityFile = "~/.ssh/id_ed25519";
     };
   };
 }

@@ -4,6 +4,7 @@
 {
   programs.vscode = {
     enable = true;
+    mutableExtensionsDir = true;
     package = pkgs.vscode;
 
     extensions = with pkgs.vscode-extensions; [

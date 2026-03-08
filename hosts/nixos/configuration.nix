@@ -138,7 +138,7 @@
     # System utilities
     pciutils
     wireguard-tools
-    telegram-desktop
+    # telegram-desktop
   ];
 
   system.stateVersion = "25.11";

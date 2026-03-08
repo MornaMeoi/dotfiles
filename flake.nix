@@ -22,6 +22,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = { inherit unstable; }; # ← добавить эту строку
           home-manager.users.mornameoi = import ./home/mornameoi.nix;
         }
         # Передаём unstable в конфиг как specialArgs

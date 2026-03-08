@@ -105,6 +105,9 @@
   # ── Printing ──────────────────────────────────────────────────────────────
   services.printing.enable = true;
 
+  # ── Flatpak ───────────────────────────────────────────────────────────────
+  services.flatpak.enable = true;
+
   # ── Users ─────────────────────────────────────────────────────────────────
   users.users.mornameoi = {
     description = "MornaMeoi";

@@ -19,7 +19,6 @@
     google-chrome
     jq
     ripgrep
-    telegram-desktop
     vscode
   ];
 

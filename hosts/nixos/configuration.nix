@@ -22,7 +22,7 @@
     dates = "weekly";
     options = "--delete-older-than 14d"; # удалять генерации старше 14 дней
   };
-  
+
   # ── Nix ───────────────────────────────────────────────────────────────────
   nix.settings = {
     auto-optimise-store = true; # дедупликация файлов в /nix/store
@@ -138,6 +138,7 @@
     # System utilities
     pciutils
     wireguard-tools
+    telegram-desktop
   ];
 
   system.stateVersion = "25.11";

@@ -10,7 +10,7 @@
     ./programs/fish.nix
   ];
 
-  home.packages = with pkgs; [
+  home.packages = (with pkgs; [
     bat
     btop
     fd
@@ -20,6 +20,8 @@
     jq
     ripgrep
     vscode
+  ]) ++ [
+    unstable.telegram-desktop
   ];
 
   programs.ssh = {

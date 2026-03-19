@@ -108,6 +108,8 @@
   # ── Flatpak ───────────────────────────────────────────────────────────────
   services.flatpak.enable = true;
 
+  # ── Zapret ────────────────────────────────────────────────────────────────
+
   # ── Users ─────────────────────────────────────────────────────────────────
   users.users.mornameoi = {
     description = "MornaMeoi";
@@ -142,6 +144,7 @@
     pciutils
     wireguard-tools
     # telegram-desktop
+    zapret
   ];
 
   system.stateVersion = "25.11";

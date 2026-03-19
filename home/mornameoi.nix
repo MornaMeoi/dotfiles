@@ -19,7 +19,9 @@
     google-chrome
     jq
     ripgrep
+    tree
     vscode
+    valgrind
   ];
 
   programs.ssh = {

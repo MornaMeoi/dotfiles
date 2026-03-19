@@ -21,7 +21,7 @@
     ripgrep
     tree
     vscode
-    build-essential
+    gcc
     valgrind
     clang-tools
   ];

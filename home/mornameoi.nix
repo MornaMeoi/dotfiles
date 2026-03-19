@@ -22,6 +22,7 @@
     tree
     vscode
     valgrind
+    clang-tools
   ];
 
   programs.ssh = {

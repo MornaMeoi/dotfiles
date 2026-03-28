@@ -27,6 +27,7 @@
     gnumake
     cmake
     cppcheck
+    docker-compose
   ];
 
   programs.ssh = {

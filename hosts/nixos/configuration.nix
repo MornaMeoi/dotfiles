@@ -108,7 +108,8 @@
   # ── Flatpak ───────────────────────────────────────────────────────────────
   services.flatpak.enable = true;
 
-  # ── Zapret ────────────────────────────────────────────────────────────────
+  # ── Docker ──────────────────────────────────────────────────────────────────
+  virtualisation.docker.enable = true;
 
   # ── Users ─────────────────────────────────────────────────────────────────
   users.users.mornameoi = {
@@ -116,6 +117,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "docker"
     ];
     isNormalUser = true;
     shell = pkgs.fish;

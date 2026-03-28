@@ -24,6 +24,9 @@
     gcc
     valgrind
     clang-tools
+    make
+    cmake
+    cppcheck
   ];
 
   programs.ssh = {

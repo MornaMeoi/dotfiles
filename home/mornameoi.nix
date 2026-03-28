@@ -24,7 +24,7 @@
     gcc
     valgrind
     clang-tools
-    make
+    gnumake
     cmake
     cppcheck
   ];

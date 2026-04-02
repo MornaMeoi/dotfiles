@@ -9,6 +9,7 @@
     ./programs/fish.nix
     ./programs/git.nix
     ./programs/vscode.nix
+    ./plasma.nix 
   ];
 
   home.packages = with pkgs; [
@@ -35,6 +36,7 @@
     hunspell
     hunspellDicts.ru_RU
     hunspellDicts.en_US
+    jetbrains-mono
   ];
 
   programs.ssh = {

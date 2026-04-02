@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, vars, ... }:
 
 {
   imports = [
@@ -8,30 +8,29 @@
   # ── Boot ──────────────────────────────────────────────────────────────────
   boot.loader = {
     efi.canTouchEfiVariables = true;
-    timeout = 5; # секунд до автозагрузки
+    timeout = 5;
     systemd-boot = {
       enable = true;
-      configurationLimit = 3; # максимум 3 последних поколений в меню
-      editor = false; # запретить редактирование параметров ядра при загрузке (безопаснее)
+      configurationLimit = 3;
+      editor = false;
     };
   };
 
-  # ── Nix Garbage Collector ─────────────────────────────────────────────────
+  # ── Nix ───────────────────────────────────────────────────────────────────
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 7d"; # удалять генерации старше 14 дней
+    options = "--delete-older-than 7d";
   };
 
-  # ── Nix ───────────────────────────────────────────────────────────────────
   nix.settings = {
-    auto-optimise-store = true; # дедупликация файлов в /nix/store
+    auto-optimise-store = true;
     experimental-features = [ "nix-command" "flakes" ];
   };
 
   # ── Networking ────────────────────────────────────────────────────────────
   networking = {
-    hostName = "nixos";
+    hostName = vars.hostname;   # ← из vars
     networkmanager.enable = true;
     wireguard.enable = true;
   };
@@ -54,20 +53,19 @@
     };
   };
 
-  # ── Hardware firmware ─────────────────────────────────────────────────────
-  hardware.enableRedistributableFirmware = true; # MediaTek WiFi, AMD microcode и т.д.
-
   # ── Hardware ──────────────────────────────────────────────────────────────
+  hardware.enableRedistributableFirmware = true;
+
   hardware.graphics = {
     enable = true;
-    enable32Bit = true; # нужно для Steam, Wine, игр через Proton
+    enable32Bit = true;
   };
 
   hardware.nvidia = {
     modesetting.enable = true;
     open = true;
-    nvidiaSettings = true; # включает GUI-утилиту nvidia-settings и nvidia-smi
-    package = config.boot.kernelPackages.nvidiaPackages.stable; # явно фиксируем ветку
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   # ── Display Server & Desktop ──────────────────────────────────────────────
@@ -98,7 +96,7 @@
   # ── Bluetooth ─────────────────────────────────────────────────────────────
   hardware.bluetooth = {
     enable = true;
-    powerOnBoot = true; # фикс off-blocked при загрузке
+    powerOnBoot = true;
   };
   services.blueman.enable = true;
 
@@ -108,24 +106,20 @@
   # ── Flatpak ───────────────────────────────────────────────────────────────
   services.flatpak.enable = true;
 
-  # ── Docker ──────────────────────────────────────────────────────────────────
+  # ── Docker ────────────────────────────────────────────────────────────────
   virtualisation.docker.enable = true;
 
   # ── Users ─────────────────────────────────────────────────────────────────
-  users.users.mornameoi = {
-    description = "MornaMeoi";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "docker"
-    ];
+  users.users.${vars.user} = {  # ← из vars
+    description = vars.gitName;
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     isNormalUser = true;
     shell = pkgs.fish;
   };
 
   # ── Programs ──────────────────────────────────────────────────────────────
   programs = {
-    direnv.enable = true; # автоматически добавляет хук в Fish
+    direnv.enable = true;
     fish.enable = true;
   };
 
@@ -133,19 +127,13 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    # Nix tooling
-    nil           # Language Server (замена rnix-lsp)
-    nixfmt-rfc-style  # официальный форматтер (заменяет nixpkgs-fmt)
-
-    # Libraries
+    nil
+    nixfmt-rfc-style
     boost
     qt6.qtbase
     qt6.qtdeclarative
-
-    # System utilities
     pciutils
     wireguard-tools
-    # telegram-desktop
     zapret
   ];
 

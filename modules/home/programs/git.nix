@@ -1,11 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, vars, ... }:
 
 {
   programs.git = {
     enable = true;
     settings = {
-      user.name = "MornaMeoi";
-      user.email = "shurasick@mail.ru";
+      user.name  = vars.gitName;
+      user.email = vars.gitEmail;
       init.defaultBranch = "main";
     };
   };

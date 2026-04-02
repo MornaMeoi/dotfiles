@@ -1,4 +1,3 @@
-# home/programs/vscode.nix
 { config, pkgs, ... }:
 
 {
@@ -8,16 +7,11 @@
     package = pkgs.vscode;
 
     extensions = with pkgs.vscode-extensions; [
-      # Nix
-      jnoortheen.nix-ide       # Nix IDE (языковой сервер)
-      mkhl.direnv              # direnv интеграция
-
-      # Git
-      eamodio.gitlens          # расширенный git blame/история
-
-      # Общее
-      esbenp.prettier-vscode   # форматтер
-      usernamehw.indent-rainbow # подсветка отступов
+      jnoortheen.nix-ide
+      mkhl.direnv
+      eamodio.gitlens
+      esbenp.prettier-vscode
+      usernamehw.indent-rainbow
     ];
 
     userSettings = {
@@ -29,7 +23,7 @@
       "nix.serverSettings" = {
         "nil" = {
           "formatting" = {
-            "command" = [ "nixfmt-rfc-style" ]; # уже заменили nixpkgs-fmt
+            "command" = [ "nixfmt-rfc-style" ];
           };
         };
       };

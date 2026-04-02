@@ -4,6 +4,12 @@
   home.username    = vars.user;
   home.homeDirectory = "/home/${vars.user}";
   home.stateVersion = "25.11";
+  home.sessionVariables = {
+    PKG_CONFIG_PATH = "$HOME/.nix-profile/lib/pkgconfig:$PKG_CONFIG_PATH";
+    CPATH           = "$HOME/.nix-profile/include:$CPATH";
+    LIBRARY_PATH    = "$HOME/.nix-profile/lib:$LIBRARY_PATH";
+    LD_LIBRARY_PATH = "$HOME/.nix-profile/lib:$LD_LIBRARY_PATH";
+  };
 
   imports = [
     ./programs/fish.nix

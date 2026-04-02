@@ -28,6 +28,8 @@
     cmake
     cppcheck
     docker-compose
+    pkg-config
+    check
     # Office
     libreoffice-qt6
     hunspell

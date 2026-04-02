@@ -14,6 +14,10 @@
     };
     shellInit = ''
       set -x EDITOR "${vars.editor}"
+      set -x PKG_CONFIG_PATH /etc/profiles/per-user/${vars.user}/lib/pkgconfig
+      set -x CPATH /etc/profiles/per-user/${vars.user}/include
+      set -x LIBRARY_PATH /etc/profiles/per-user/${vars.user}/lib
+      set -x LD_LIBRARY_PATH /etc/profiles/per-user/${vars.user}/lib
     '';
   };
 

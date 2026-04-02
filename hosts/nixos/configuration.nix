@@ -137,13 +137,5 @@
     zapret
   ];
 
-  # ── Environment variables ──────────────────────────────────────────────────
-  environment.variables = {
-    PKG_CONFIG_PATH = "/etc/profiles/per-user/${vars.user}/lib/pkgconfig";
-    CPATH           = "/etc/profiles/per-user/${vars.user}/include";
-    LIBRARY_PATH    = "/etc/profiles/per-user/${vars.user}/lib";
-    LD_LIBRARY_PATH = "/etc/profiles/per-user/${vars.user}/lib";
-  };
-
   system.stateVersion = "25.11";
 }

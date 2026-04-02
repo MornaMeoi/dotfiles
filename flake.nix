@@ -32,6 +32,7 @@
         {
           home-manager.useGlobalPkgs    = true;
           home-manager.useUserPackages  = true;
+          home-manager.backupFileExtension = "backup";
           home-manager.extraSpecialArgs = { inherit vars; }; # доступно во всех HM-модулях
           home-manager.users.${vars.user} = import ./modules/home/default.nix;
         }

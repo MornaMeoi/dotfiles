@@ -28,6 +28,11 @@
     cmake
     cppcheck
     docker-compose
+    # ── Office ────────────────────────────────────────────────────────────
+    libreoffice-qt6         # нативная Qt6/Plasma 6 сборка
+    hunspell                # движок проверки орфографии
+    hunspellDicts.ru_RU     # русский словарь
+    hunspellDicts.en_US     # английский словарь
   ];
 
   programs.ssh = {

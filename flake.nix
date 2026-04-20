@@ -12,9 +12,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    tg-ws-proxy.url = "github:pialtor/tg-ws-proxy-flake";
+    tg-ws-proxy.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, home-manager, plasma-manager, ... }:
+  outputs = { nixpkgs, home-manager, plasma-manager, ... }@inputs:
   let
     system = "x86_64-linux";
     vars = {
@@ -29,9 +31,10 @@
   in {
     nixosConfigurations.${vars.hostname} = nixpkgs.lib.nixosSystem {
       inherit system;
-      specialArgs = { inherit vars; };
+      specialArgs = { inherit vars inputs; };
       modules = [
         ./hosts/nixos/configuration.nix
+        ./modules/nixos
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs       = true;
@@ -39,7 +42,7 @@
           home-manager.backupFileExtension = "backup";
           home-manager.extraSpecialArgs    = { inherit vars; };
           home-manager.sharedModules       = [
-            plasma-manager.homeManagerModules.plasma-manager
+            plasma-manager.homeModules.plasma-manager
           ];
           home-manager.users.${vars.user}  = import ./modules/home/default.nix;
         }

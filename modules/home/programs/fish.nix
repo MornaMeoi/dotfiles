@@ -18,6 +18,11 @@
       set -x CPATH /etc/profiles/per-user/${vars.user}/include
       set -x LIBRARY_PATH /etc/profiles/per-user/${vars.user}/lib
       set -x LD_LIBRARY_PATH /etc/profiles/per-user/${vars.user}/lib
+      # NVIDIA + Wayland + Electron
+      set -x NIXOS_OZONE_WL 1
+      set -x GBM_BACKEND nvidia-drm
+      set -x __GLX_VENDOR_LIBRARY_NAME nvidia
+      set -x WLR_NO_HARDWARE_CURSORS 1
     '';
   };
 

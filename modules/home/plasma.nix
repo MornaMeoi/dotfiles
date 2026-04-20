@@ -15,11 +15,7 @@
     # ── Внешний вид ───────────────────────────────────────────────────────
     workspace = {
       lookAndFeel    = "org.kde.breezedark.desktop";
-      colorScheme    = "CatppuccinMochaTeal";   # тёмный с циановым акцентом
-      cursorTheme    = "Catppuccin-Mocha-Dark-Cursors";
-      iconTheme      = "Papirus-Dark";
-      # Положи любой Lain/Matrix обой в ~/Pictures/wallpaper.png
-      wallpaper      = "/home/${vars.user}/Pictures/wallpaper.png";
+      wallpaper      = "/home/${vars.user}/Pictures/Wallpapers/Lain/1.webp";
     };
 
     # ── Шрифты ────────────────────────────────────────────────────────────
@@ -160,7 +156,7 @@
       # Одиночный клик открывает файлы (как macOS/современные DE)
       "kdeglobals"."KDE"."SingleClick" = "false";
       # Тема Kvantum
-      "~/.config/Kvantum/kvantum.kvconfig"."General"."theme" = "catppuccin-mocha-teal";
+      "Kvantum/kvantum.kvconfig"."General"."theme" = "catppuccin-mocha-teal";
     };
   };
 }

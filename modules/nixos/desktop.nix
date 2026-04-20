@@ -1,16 +1,16 @@
-{ pkgs, inputs, ... }:
+{ ... }:
 
 {
   services.xserver = {
     enable       = true;
     videoDrivers = [ "nvidia" ];
     xkb = {
-      layout  = "us";
+      layout  = "us,ru";
+      options = "grp:alt_shift_toggle";
       variant = "";
     };
   };
 
-  services.displayManager.sddm.enable       = true;
   programs.hyprland.enable = true;
 
   xdg.portal = {

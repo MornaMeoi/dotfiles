@@ -12,6 +12,7 @@
     ./programs/vscode.nix
     ./hyprland.nix
     ./waybar.nix
+    ./theme.nix
   ];
 
   home.packages = with pkgs; [
@@ -33,12 +34,13 @@
     docker-compose
     pkg-config
     check
-    # Office
     libreoffice-qt6
     hunspell
     hunspellDicts.ru_RU
     hunspellDicts.en_US
-    jetbrains-mono
+    nerd-fonts.jetbrains-mono
+    grimblast
+    slurp
   ];
 
   programs.ssh = {

@@ -10,5 +10,7 @@
     ./audio.nix
     ./users.nix
     ./packages.nix
+    ./sddm.nix
+    ./tg-ws-proxy.nix
   ];
 }

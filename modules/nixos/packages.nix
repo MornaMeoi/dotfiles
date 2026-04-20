@@ -11,5 +11,6 @@
     nixfmt-rfc-style
     pciutils
     wireguard-tools
+    obsidian
   ];
 }

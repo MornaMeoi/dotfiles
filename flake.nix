@@ -9,11 +9,9 @@
     };
     tg-ws-proxy.url = "github:pialtor/tg-ws-proxy-flake";
     tg-ws-proxy.inputs.nixpkgs.follows = "nixpkgs";
-    hyprland.url = "github:hyprwm/Hyprland";
-    hyprland.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, home-manager, hyprland, ... }@inputs:
+  outputs = { nixpkgs, home-manager, ... }@inputs:
   let
     system = "x86_64-linux";
     vars = {
@@ -37,7 +35,7 @@
           home-manager.useGlobalPkgs       = true;
           home-manager.useUserPackages     = true;
           home-manager.backupFileExtension = "backup";
-          home-manager.extraSpecialArgs    = { inherit vars; };
+          home-manager.extraSpecialArgs    = { inherit vars inputs; };
           home-manager.users.${vars.user}  = import ./modules/home/default.nix;
         }
       ];

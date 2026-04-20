@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   services.xserver = {
@@ -11,11 +11,15 @@
   };
 
   services.displayManager.sddm.enable       = true;
-  services.desktopManager.plasma6.enable    = true;
+    programs.hyprland = {
+    enable      = true;
+    package     = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  };
 
   xdg.portal = {
     enable       = true;
-    extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
+    extraPortals = [];
   };
 
   environment.variables = {

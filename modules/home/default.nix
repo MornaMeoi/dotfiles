@@ -10,7 +10,8 @@
     ./programs/fish.nix
     ./programs/git.nix
     ./programs/vscode.nix
-    ./plasma.nix 
+    ./hyprland.nix
+    ./waybar.nix
   ];
 
   home.packages = with pkgs; [

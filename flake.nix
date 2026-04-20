@@ -7,16 +7,13 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
     tg-ws-proxy.url = "github:pialtor/tg-ws-proxy-flake";
     tg-ws-proxy.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, home-manager, plasma-manager, ... }@inputs:
+  outputs = { nixpkgs, home-manager, hyprland, ... }@inputs:
   let
     system = "x86_64-linux";
     vars = {
@@ -41,9 +38,6 @@
           home-manager.useUserPackages     = true;
           home-manager.backupFileExtension = "backup";
           home-manager.extraSpecialArgs    = { inherit vars; };
-          home-manager.sharedModules       = [
-            plasma-manager.homeModules.plasma-manager
-          ];
           home-manager.users.${vars.user}  = import ./modules/home/default.nix;
         }
       ];

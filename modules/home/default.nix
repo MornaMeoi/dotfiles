@@ -43,6 +43,7 @@
     wf-recorder
     ffmpeg 
     slurp
+    libnotify
   ];
 
   programs.ssh = {

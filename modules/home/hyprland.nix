@@ -8,6 +8,7 @@
 
       "exec-once" = [
         "dunst"
+        "blueman-applet"
         "sleep 1 && hyprpaper"
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland"
@@ -71,6 +72,8 @@
         "$mainMod, Print, exec, grimblast copy screen"
         "$mainMod SHIFT, Print, exec, grimblast copy area"
         "$mainMod ALT, Print, exec, grimblast copy active"
+
+        "$mainMod, G, exec, ~/dotfiles/scripts/record.sh"
       ]
       # Воркспейсы 1-9 через генерацию
       ++ (builtins.concatLists (builtins.genList (i:

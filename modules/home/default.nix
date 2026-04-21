@@ -40,6 +40,8 @@
     hunspellDicts.en_US
     nerd-fonts.jetbrains-mono
     grimblast
+    wf-recorder
+    ffmpeg 
     slurp
   ];
 

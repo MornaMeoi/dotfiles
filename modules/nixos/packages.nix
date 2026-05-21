@@ -7,10 +7,10 @@
   virtualisation.docker.enable  = true;
 
   environment.systemPackages = with pkgs; [
+    xray
     nil
     nixfmt-rfc-style
     pciutils
-    wireguard-tools
     obsidian
   ];
 }

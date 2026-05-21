@@ -69,9 +69,9 @@
         "$mainMod CTRL, $up, resizeactive,  0 -50"
         "$mainMod CTRL, $down, resizeactive,  0  50"
 
-        "$mainMod, Print, exec, grimblast copy screen"
-        "$mainMod SHIFT, Print, exec, grimblast copy area"
-        "$mainMod ALT, Print, exec, grimblast copy active"
+        ", Print, exec, grimblast copysave screen"
+        "SHIFT, Print, exec, grimblast copysave area"
+        "ALT, Print, exec, grimblast copysave active"
 
         "$mainMod, G, exec, ~/dotfiles/scripts/record.sh"
       ]

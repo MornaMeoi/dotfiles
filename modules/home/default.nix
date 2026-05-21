@@ -44,6 +44,9 @@
     ffmpeg 
     slurp
     libnotify
+    wev
+    zip
+    unzip
   ];
 
   programs.ssh = {

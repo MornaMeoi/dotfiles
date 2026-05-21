@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   services.xserver = {
@@ -15,7 +15,7 @@
 
   xdg.portal = {
     enable       = true;
-    extraPortals = [];
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   };
 
   environment.variables = {

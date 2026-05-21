@@ -12,5 +12,6 @@
     ./packages.nix
     ./sddm.nix
     ./tg-ws-proxy.nix
+    ./xray.nix
   ];
 }
